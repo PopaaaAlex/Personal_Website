@@ -1,0 +1,10 @@
+.contact p {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+}
+
+.contact img {
+    vertical-align: middle;
+    margin-left: 8px;
+}
