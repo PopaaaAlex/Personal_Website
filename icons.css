@@ -8,3 +8,19 @@
     vertical-align: middle;
     margin-left: 8px;
 }
+
+footer {
+    text-align: center;
+    padding: 5px; /* Micșorează padding-ul */
+    background-color: #4CAF50; /* Culoare verde pentru footer */
+    color: white;
+    font-size: 14px; /* Diminuează dimensiunea fontului */
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
