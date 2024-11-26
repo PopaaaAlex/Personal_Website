@@ -1,62 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-</head>
+    <style>
+        /* Stiluri pentru body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-<body bgcolor="lightgreen">
+        /* Stiluri pentru navbar */
+        nav {
+            background-color: #4CAF50; /* Navbar verde */
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            width: 100%;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: black; /* Culoare neagră la hover */
+            text-decoration: underline; /* Subliniere la hover */
+        }
+
+        /* Stiluri pentru container */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Stiluri pentru formulare */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="email"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer verde */
+        footer {
+            background-color: #4CAF50; /* Footer verde */
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin-top: auto; /* Asigură că footer-ul este plasat la bază */
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
     <nav>
         <div>
             |<a href="home.html">Home</a> |
             <a href="CV.html">CV</a> |
             <a href="contact.html">Contact</a> |  
         </div>
-        
     </nav>
-    <br><br>
+
     <div class="container">
-      <form action="mailto:apopa1511@stud.acs.upb.ro" method="post" enctype="text/plain">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
-          <br><br>
-  
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
-          <br><br>
-  
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Your email address.." required>
-          <br><br>
-  
-          <label for="country">Country</label>
-          <select id="country" name="country">
-              <option value="romania">Romania</option>
-              <option value="republic of moldova">Republic of Moldova</option>
-              <option value="france">France</option>
-              <option value="germany">Germany</option>
-              <option value="other">Other</option>
-          </select>
-          <br><br>
-  
-          <label for="subject">Subject</label>
-          <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
-          <br><br>
-  
-          <input type="submit" value="Submit">
-      </form>
-  </div>
+        <h1>Contact</h1>
+        <form action="mailto:apopa1511@stud.acs.upb.ro" method="post" enctype="text/plain">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+            <br>
 
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <footer>
-        <div class="Direct contact">
-            <a href="https://www.facebook.com/alex.popa.3532/">Facebook</a> |
-            <a href="https://www.instagram.com/alex.popa.1511/">Instagram</a> |
-            <a href="https://www.linkedin.com/in/alexandru-stefan-popa-6688b92a7/">Linkedin</a>
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+            <br>
 
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email address.." required>
+            <br>
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="romania">Romania</option>
+                <option value="republic of moldova">Republic of Moldova</option>
+                <option value="france">France</option>
+                <option value="germany">Germany</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
+            <br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <footer>
+        <div class="Direct-contact">
+            <a href="https://www.facebook.com/alex.popa.3532/">
+                <img src="Facebook_v2.png" alt="Facebook" style="width: 24px; height: 24px; margin-right: 10px;">
+            </a> |
+            <a href="https://www.instagram.com/alex.popa.1511/">
+                <img src="Instagram.png" alt="Instagram" style="width: 24px; height: 24px; margin-right: 10px;">
+            </a> |
+            <a href="https://www.linkedin.com/in/alexandru-stefan-popa-6688b92a7/">
+                <img src="Linkedin.png" alt="linkedIn" style="width: 24px; height: 24px; margin-right: 10px;">
+            </a>
         </div>
-      </footer>
+    </footer>
 
 </body>
+</html>
