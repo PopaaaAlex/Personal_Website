@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Gallery with Centered Pop-Up</title>
+    <style>
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+        }
+
+        nav .logo img {
+            height: auto;
+            width: 40px;
+            transition: transform 0.5s ease, width 0.2s ease;
+        }
+
+
+        nav .logo img:hover {
+            filter: grayscale(70%);
+            filter: blur(5%);
+            transform: scale(1.5);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        div.gallery {
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .responsive {
+            padding: 0 6px;
+            float: left;
+            width: 24.99999%;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav .nav-links a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        @media only screen and (max-width: 700px) {
+            
+            nav {
+                flex-direction: row;
+                align-items: center;
+                padding: 8px 15px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #4CAF50;
+                width: 100%;
+                z-index: 1000;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            nav .nav-links a {
+                padding: 8px 0;
+                font-size: 14px;
+                width: 100%;
+            }
+
+            .responsive {
+                width: 49.99999%;
+                margin: 6px 0;
+            }
+
+            nav .hamburger {
+                display: block;
+                margin-left: auto;
+                font-size: 24px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .responsive {
+                width: 100%;
+            }
+        }
+
+        .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 5px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            margin: auto;
+            position: relative;
+            display: block;
+        }
+        .modal:target {
+            display: flex;
+        }
+
+        .modal a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal a img {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="home.html">
+                <img src="Pictures/AP_logo_b.png" alt="AP Logo">
+            </a>
+        </div>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="CV.html">CV</a>
+            <a href="Portofolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a href="#img1">
+                <img src="Pictures/Portofolio/Cascada.jpg" alt="Cascade">
+            </a>
+            <div class="desc">Cascada</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a href="#img2">
+                <img src="Pictures/Portofolio/Food_1.jpg" alt="Quessadia">
+            </a>
+            <div class="desc">Quessadia</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a href="#img3">
+                <img src="Pictures/Portofolio/Food_2.jpg" alt="Pasta with chicken">
+            </a>
+            <div class="desc">Pasta with chicken</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a href="#img4">
+                <img src="Pictures/Portofolio/Food_3.jpg" alt="Alfredo Pasta">
+            </a>
+            <div class="desc">Alfredo Pasta</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a href="#img5">
+                <img src="Pictures/Portofolio/Sunset.jpg" alt="Sunset">
+            </a>
+            <div class="desc">Sunset</div>
+        </div>
+    </div>
+
+    <div class="responsive">
+        <div class="gallery">
+            <a href="#img6">
+                <img src="Pictures/Portofolio/Valley.jpg" alt="Valley">
+            </a>
+            <div class="desc">Valley</div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div id="img1" class="modal">
+        <a href="#"><img src="Pictures/Portofolio/Cascada.jpg" alt="Cascada"></a>
+    </div>
+
+    <div id="img2" class="modal">
+        <a href="#"><img src="Pictures/Portofolio/Food_1.jpg" alt="Food 1"></a>
+    </div>
+
+    <div id="img3" class="modal">
+        <a href="#"><img src="Pictures/Portofolio/Food_2.jpg" alt="Food 2"></a>
+    </div>
+
+    <div id="img4" class="modal">
+        <a href="#"><img src="Pictures/Portofolio/Food_3.jpg" alt="Food 3"></a>
+    </div>
+
+    <div id="img5" class="modal">
+        <a href="#"><img src="Pictures/Portofolio/Sunset.jpg" alt="Sunset"></a>
+    </div>
+
+    <div id="img6" class="modal">
+        <a href="#"><img src="Pictures/Portofolio/Valley.jpg" alt="Valley"></a>
+    </div>
+
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector(".nav-links");
+            navLinks.classList.toggle("show");    
+        }
+    </script>
+
+</body>
+</html>

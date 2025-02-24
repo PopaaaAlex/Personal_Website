@@ -5,75 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <style>
-        /* Stiluri pentru body */
-        body {
+       
+        body, html {
+            height: 100%;
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            flex-direction: column; 
         }
 
-        /* Stiluri pentru navbar */
-        nav {
-            background-color: #4CAF50; /* Navbar verde */
-            padding: 10px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            width: 100%;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            color: black; /* Culoare neagră la hover */
-            text-decoration: underline; /* Subliniere la hover */
-        }
-
-        /* Stiluri pentru container */
         .container {
+            flex-grow: 1;
             max-width: 800px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 100%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
             box-sizing: border-box;
         }
 
         h1 {
             text-align: center;
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        /* Stiluri pentru formulare */
-        form {
+        nav {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #4CAF50;
+            padding: 5px 15px;
+            position: relative;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav .logo img {
+            height: auto;
+            width: 40px;
+            transition: transform 0.5s ease, width 0.2s ease;
+        }
+
+        nav .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+        
+        nav .logo img:hover {
+                filter: grayscale(70%);
+                filter: blur(5%);
+         }
+
+
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #4CAF50;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            margin-top: auto; 
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer img {
+            width: 24px;
+            height: 24px; 
+            margin-left: 10px; 
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav .logo img:hover {
+            filter: grayscale(70%);
+            filter: blur(5%);
+            transform: scale(1.5);
+        }
+
+        footer img:hover {
+            transform: scale(1.2);
         }
 
         label {
             font-size: 16px;
             font-weight: bold;
             color: #333;
+            margin-bottom: 8px;
         }
 
         input[type="text"], input[type="email"], select, textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
         }
 
         input[type="submit"] {
@@ -84,40 +140,86 @@
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         input[type="submit"]:hover {
             background-color: #45a049;
         }
 
-        /* Footer verde */
-        footer {
-            background-color: #4CAF50; /* Footer verde */
-            padding: 20px;
-            text-align: center;
-            color: white;
-            margin-top: auto; /* Asigură că footer-ul este plasat la bază */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: row;
+                align-items: center;
+                padding: 8px 15px;
+            }
+
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #4CAF50;
+                z-index: 1000;
+            }
+
+            nav .nav-links a {
+                padding: 8px 0;
+                font-size: 14px;
+                width: 100%;
+            }
+
+            nav .hamburger {
+                display: block;
+                margin-left: auto;
+                font-size: 24px;
+            }
+
+            nav .logo {
+                margin-right: auto;
+            }
+
+            nav .logo img {
+                height: auto;
+                width: 30px;
+            }
         }
 
-        footer a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 18px;
-        }
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 12px;
+            }
 
-        footer a:hover {
-            text-decoration: underline;
+            h1 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 14px;
+                margin: 10px;
+            }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div>
-            |<a href="home.html">Home</a> |
-            <a href="CV.html">CV</a> |
-            <a href="contact.html">Contact</a> |  
+        <div class="logo">
+            <a href="home.html">
+                <img src="Pictures/AP_logo_b.png" alt="AP Logo">
+            </a>
+        </div>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="CV.html">CV</a>
+            <a href="Portofolio.html">Portofolio</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
 
@@ -126,15 +228,12 @@
         <form action="mailto:apopa1511@stud.acs.upb.ro" method="post" enctype="text/plain">
             <label for="fname">First Name</label>
             <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
-            <br>
 
             <label for="lname">Last Name</label>
             <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
-            <br>
 
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Your email address.." required>
-            <br>
 
             <label for="country">Country</label>
             <select id="country" name="country">
@@ -144,29 +243,35 @@
                 <option value="germany">Germany</option>
                 <option value="other">Other</option>
             </select>
-            <br>
 
             <label for="subject">Subject</label>
             <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
-            <br>
 
             <input type="submit" value="Submit">
         </form>
     </div>
 
     <footer>
-        <div class="Direct-contact">
-            <a href="https://www.facebook.com/alex.popa.3532/">
-                <img src="Pictures/Facebook_v2.png" alt="Facebook" style="width: 24px; height: 24px; margin-right: 10px;">
-            </a> |
-            <a href="https://www.instagram.com/alex.popa.1511/">
-                <img src="Pictures/Instagram.png" alt="Instagram" style="width: 24px; height: 24px; margin-right: 10px;">
-            </a> |
-            <a href="https://www.linkedin.com/in/alexandru-stefan-popa-6688b92a7/">
-                <img src="Pictures/Linkedin.png" alt="linkedIn" style="width: 24px; height: 24px; margin-right: 10px;">
-            </a>
+        <div class="contact">
+            <p>
+                <a href="https://www.facebook.com/alex.popa.3532/" target="_blank" title="Facebook">
+                    <img src="Pictures/Facebook_v2.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/alex.popa.1511/" target="_blank" title="Instagram">
+                    <img src="Pictures/Instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/alexandru-stefan-popa-6688b92a7/" target="_blank" title="LinkedIn">
+                    <img src="Pictures/Linkedin.png" alt="LinkedIn">
+                </a>
+            </p>
         </div>
     </footer>
 
+    <script>
+        function toggleMenu() {
+            var navLinks = document.querySelector(".nav-links");
+            navLinks.style.display = (navLinks.style.display === "flex") ? "none" : "flex";
+        }
+    </script>
 </body>
 </html>

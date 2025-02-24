@@ -7,8 +7,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
             background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
@@ -28,50 +29,57 @@
         }
 
         nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             background-color: #4CAF50;
-            padding: 10px;
-            text-align: center; 
+            padding: 5px 15px;
+            position: relative;
+        }
+
+        nav .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav .logo img {
+            height: auto;
+            width: 40px;
+            transition: transform 0.5s ease, width 0.2s ease;
+        }
+
+        nav .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
         }
 
         nav a {
-            color: white; 
+            color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            font-size: 14px;
+            margin: 0 10px;
         }
 
         nav a:hover {
             color: black;
-            text-decoration: underline; 
-        }
-
-        .contact {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .contact a {
-            color: #0073e6;
-            text-decoration: none;
-        }
-
-        .contact a:hover {
             text-decoration: underline;
         }
 
-        section {
-            margin-bottom: 20px;
-        }
-
-        ul {
-            list-style-type: square;
-            padding-left: 20px;
+        .hamburger {
+            display: none;
+            font-size: 30px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
         }
 
         footer {
             background-color: #4CAF50;
             padding: 10px;
-            text-align: center; 
+            text-align: center;
             color: white;
         }
 
@@ -79,31 +87,127 @@
             color: white;
             text-decoration: none;
         }
+        
+        .contact {
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
 
+        }
+
+        .contact p {
+            display: inline-block;
+        }
+
+        .contact a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
         footer a:hover {
             color: black;
             text-decoration: underline;
         }
+
+        footer img {
+            width: 16px; 
+            height: 16px; 
+            margin-left: 5px; 
+        }
+
+        nav .logo img:hover {
+                filter: grayscale(70%);
+                filter: blur(5%);
+                transform: scale(1.5);
+         }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: row;
+                align-items: center;
+                padding: 8px 15px;
+            }
+
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #4CAF50;
+                z-index: 1000;
+            }
+
+            nav .nav-links a {
+                padding: 8px 0;
+                font-size: 14px;
+                width: 100%;
+            }
+
+            nav .hamburger {
+                display: block;
+                margin-left: auto;
+                font-size: 24px;
+            }
+
+            nav .logo {
+                margin-right: auto;
+            }
+
+            nav .logo img {
+                height: auto;
+                width: 30px; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 12px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 14px;
+                margin: 10px;
+            }
+        }
+
     </style>
 </head>
 <body>
     <nav>
-        <div>
-            |<a href="home.html">Home</a> |
-            <a href="CV.html">My CV</a> |
-            <a href="contact.html">Contact</a> |  
+        <div class="logo">
+            <a href="home.html">
+                <img src="Pictures/AP_logo_b.png" alt="AP Logo">
+            </a>
+        </div>
+
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="CV.html">My CV</a>
+            <a href="Portofolio.html">Portofolio</a>
+            <a href="contact.html">Contact</a>
         </div>
     </nav>
+
     <div class="container">
         <h1>CV</h1>
         <div class="contact">
             <p>0752 507 817 ⋄ Bucharest, Romania</p>
             <p>
-                <a href="mailto:alexandrupopa1511@gmail.com" target="_blank" title="Send an email">
-                    <img src="Pictures/Gmail.png" alt="Gmail" style="width: 24px; height: 24px; margin-right: 10px;">
+                <a href="mailto:alexandrupopa1511@gmail.com" target="_blank" title="Send an email"
+                style="width: 24px; height: 24px;">
+                    <img src="Pictures/Gmail.png" alt="Gmail" style="width: 24px; height: 24px;">
                 </a>
                 <a href="https://www.linkedin.com/in/alexandru-stefan-popa-6688b92a7/" target="_blank" title="Visit LinkedIn profile">
-                    <img src="Pictures/Linkedin.png" alt="LinkedIn" style="width: 24px; height: 24px; margin-right: 10px;">
+                    <img src="Pictures/Linkedin.png" alt="LinkedIn" style="width: 24px; height: 24px; ">
                 </a>
                 <a href="https://github.com/PopaaaAlex" target="_blank" title="Visit GitHub profile">
                     <img src="Pictures/Github.png" alt="GitHub" style="width: 24px; height: 24px;">
@@ -122,7 +226,7 @@
             <h2>Projects</h2>
             <h3>Tic-Tac-Toe 
                 <a href="https://github.com/PopaaaAlex/X-0" target="_blank">
-                    <img src="Pictures/Github.png" alt="GitHub" style="width: 24px; height: 24px; vertical-align: middle; margin-left: 8px;">
+                    <img src="Pictures/Github.png" alt="GitHub" style="width: 18px; height: 18px; vertical-align: middle; margin-left: 8px;">
                 </a> 
             </h3>
             <ul>
@@ -133,7 +237,7 @@
 
             <h3>Lan Party Organizer 
                 <a href="https://github.com/PopaaaAlex/Project-LanParty" target="_blank">
-                    <img src="Pictures/Github.png" alt="GitHub" style="width: 24px; height: 24px; vertical-align: middle; margin-left: 8px;">
+                    <img src="Pictures/Github.png" alt="GitHub" style="width: 18px; height: 18px; vertical-align: middle; margin-left: 8px;">
                 </a> 
             </h3>
             <ul>
@@ -144,7 +248,7 @@
 
             <h3>Graph and Ranking for LAN Party
                 <a href="https://github.com/PopaaaAlex/Graph-and-Ranking-for-LAN-Party" target="_blank">
-                    <img src="Pictures/Github.png" alt="GitHub" style="width: 24px; height: 24px; vertical-align: middle; margin-left: 8px;">
+                    <img src="Pictures/Github.png" alt="GitHub" style="width: 18px; height: 18px; vertical-align: middle; margin-left: 8px;">
                 </a>
             </h3>
             <ul>
@@ -177,5 +281,12 @@
     <footer>
         <a href="CV.html" download>Download the CV in HTML format</a>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var navLinks = document.querySelector(".nav-links");
+            navLinks.style.display = (navLinks.style.display === "flex") ? "none" : "flex";
+        }
+    </script>
 </body>
 </html>
